@@ -14,6 +14,7 @@ namespace MolopolyGame
     {
         ConsoleColor[] colors = new ConsoleColor[8] { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.Blue, ConsoleColor.DarkYellow};
         bool gameSetUp = false;
+        bool setD;
 
         public override void initializeGame()
         {
@@ -277,6 +278,44 @@ namespace MolopolyGame
             Console.Write("(2-8)>");
             int playerCount = this.inputInteger();
 
+            int a = 0;
+            do
+            {
+                // Ask Initial money for each player 
+                Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+
+                //judge the player's input
+                string r = Console.ReadLine();
+
+                if (r.Equals("Y"))
+                {
+                    // how much money will pay to each player
+                    Console.WriteLine("Please enter the money of players :");
+
+                    // read the money player input
+                    string m = Console.ReadLine();
+
+                    // write into the txt file
+                    WirteRead writer = new WirteRead();
+
+                    writer.Write(m);
+                    setD = false;
+                    break;
+                }
+                else if (r.Equals("N"))
+                {
+                    setD = true;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter the Y or N");
+                }
+
+            }
+            while (a == 0);
+
+
             //if it is out of range then display msg and redo this method
             if ((playerCount < 2) || (playerCount > 8))
             {
@@ -290,7 +329,7 @@ namespace MolopolyGame
                 Console.WriteLine("Please enter the name for Player {0}:", i + 1);
                 Console.Write(">");
                 string sPlayerName = Console.ReadLine();
-                Player player = new Player(sPlayerName);
+                Player player = new Player(sPlayerName, setD);
                 //subscribe to events
                 player.playerBankrupt += playerBankruptHandler;
                 player.playerPassGo += playerPassGoHandler;

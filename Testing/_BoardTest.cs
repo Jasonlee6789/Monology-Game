@@ -18,7 +18,7 @@ namespace MolopolyGame
         [Test]
         public void testAddGetPlayer()
         {
-            Player p = new Player("Go");
+            Player p = new Player("Go", true);
             Board.access().addPlayer(p);
 
             //check that the player is equal to a new player with name "Go"

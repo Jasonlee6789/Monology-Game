@@ -33,7 +33,7 @@ namespace MolopolyGame
             Utility util = new Utility();
 
             //Create two players
-            Player p1 = new Player("Bill");
+            Player p1 = new Player("Bill", true);
             Player p2 = new Player("Fred", 1500);
 
             string msg;
