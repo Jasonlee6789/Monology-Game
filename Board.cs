@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System;
 
 namespace MolopolyGame
 {
     /// <summary>
     /// This is class for singleton Board that has properties and traders on it.
     /// </summary>
-    
+    [Serializable]
     public class Board
     {
         //provide an static instance of this class to create singleton

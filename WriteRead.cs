@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using static System.Console;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace MolopolyGame
 {
@@ -20,6 +22,7 @@ namespace MolopolyGame
             StreamWriter writer = new StreamWriter(outFile);
 
             writer.WriteLine(m);
+            //Data can be written to a StreamWriter object using the WriteLine() method
 
             writer.Close();
             outFile.Close();
@@ -35,8 +38,9 @@ namespace MolopolyGame
             //Whether you are writing data to a file or reading data from one, you create a FileStream object
 
             StreamReader reader = new StreamReader(inFile);
-
+        
             string recordIn = reader.ReadLine();
+            //Data can be read from a StreamReader object using the ReadLine() method
 
             reader.Close();
             inFile.Close();

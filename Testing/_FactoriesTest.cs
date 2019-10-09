@@ -17,7 +17,13 @@ namespace MolopolyGame
             Property p = f.create("Property");
             //check that it is right type
             Type t = new Property().GetType();
-            Assert.IsInstanceOfType(t, p);
+            Assert.IsInstanceOf(t, p);
+
+          //  Assert.IsInstanceOfType(t, p);
+
+            //       IsInstanceOfType(Object, Type)
+//Tests whether the specified object is an instance of the expected type and 
+ // throws an exception if the expected type is not in the inheritance hierarchy of the object.
         }
 
         [Test]

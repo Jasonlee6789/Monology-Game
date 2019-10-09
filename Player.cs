@@ -20,8 +20,6 @@ namespace MolopolyGame
         Die die2 = new Die();
         bool isInactive = false;
 
-        bool setD;
-
         //event for playerBankrupt
         public event EventHandler playerBankrupt;
         public event EventHandler playerPassGo;
@@ -29,7 +27,7 @@ namespace MolopolyGame
         public Player()
         {
             this.sName = "Player";
-            this.dBalance = InitialValuesAccessor.getPlayerStartingBalance(setD);
+            this.dBalance = InitialValuesAccessor.getPlayerStartingBalance(true);
             this.location = 0;
         }
 

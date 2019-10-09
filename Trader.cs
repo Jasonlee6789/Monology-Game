@@ -16,7 +16,9 @@ namespace MolopolyGame
         protected string sName;
 
         //null constructor implemented in inherited classes
-        public Trader(){ }
+        public Trader()
+        {
+        }
 
         //constructor with name and balance
         public Trader(string sName, decimal dBalance)

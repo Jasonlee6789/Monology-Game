@@ -2,14 +2,18 @@
 Conduct unit tests on all classes in monopoly game using nUnit framework and produce average of 75% code coverage for overall application. 
 
 Implement more functionality:
+
 Mortgage properties
+
 Properties can also be mortgaged. The player receives money from the bank for each mortgaged property (half of the purchase price), which must be repaid with 10% interest to unmortgage. 
 Houses and hotels can be sold back to the bank for half their purchase price. 
-Players cannot collect rent on mortgaged properties and may not give improved property away to others; however, trading mortgaged properties is allowed.
+Players cannot collect rent on mortgaged properties and may not give improved property away to others;
+however, trading mortgaged properties is allowed.
 The player receiving the mortgaged property must immediately unmortgage it for the mortgage price plus 10%, or pay the bank just the 10% amount and keep the property mortgaged; if the player 
 chooses the latter, they must still pay the 10% again if the property is later unmortgaged.
 
 Hotels 
+
 When a player owns all of the properties in a color group and none of them are mortgaged, they may develop them during their turn or in between other player's turns. 
 Development involves buying miniature houses or hotels from the bank and placing them on the property spaces, and must be done uniformly across the group. 
 That is, a second house cannot be built on any property within a group until all of them have one house. Once the player owns an entire group, they can collect double rent for 
@@ -17,9 +21,11 @@ any undeveloped properties within it. Although houses and hotels cannot be built
  If there is more demand for houses to be built than what remains in the bank, then a housing auction is conducted to determine who will get to purchase each house.
 
 Cards
+
 A deck of 32 Chance and Community Chest cards (16 Chance and 16 Community Chest) which players draw when they land on the corresponding squares of the track, and follow the instructions printed on them. 
 
 Jail
+
 A player will land in jail if they land on "Go to Jail", throw three straight doubles in a turn, or draw a Community Chest or Chance Card saying "Go to Jail". 
 When a player is sent to jail they move there directly ("Do not pass Go. Do not collect $200.") and their turn ends. 
 If the player is not "sent" to jail but just lands on that space, they are "Just Visiting", incur no penalty and move in the usual manner on their next turn. 

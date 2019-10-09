@@ -11,8 +11,8 @@ namespace MolopolyGame
     {
         static void Main(string[] args)
         {
-            Game game = new Monopoly();
-
+            GameInterface game = new Monopoly(); 
+            //  I change "Game" to "GameInterface"
             game.initializeGame();
         }
 
