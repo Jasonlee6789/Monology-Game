@@ -4,11 +4,12 @@ using System.Text;
 
 namespace MolopolyGame
 {
-    
+
     /// <summary>
     /// Types of propreties such as community chest, water works, etc.
     /// </summary>
-    
+   
+
     public class Luck : Property
     {
         bool isBenefitNotPenalty;

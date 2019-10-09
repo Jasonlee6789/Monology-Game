@@ -278,7 +278,9 @@ namespace MolopolyGame
             Console.Write("(2-8)>");
             int playerCount = this.inputInteger();
 
-            int a = 0;
+
+            //3.1 - Load game initial set up from file.
+              int a = 0;
             do
             {
                 // Ask Initial money for each player 

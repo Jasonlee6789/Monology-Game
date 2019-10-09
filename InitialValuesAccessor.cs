@@ -18,6 +18,8 @@ namespace MolopolyGame
             return 10000;
         }
 
+
+        //3.1-Load game initial set up from file.
         static public decimal getPlayerStartingBalance(bool setD)
         {
 

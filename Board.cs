@@ -9,6 +9,7 @@ namespace MolopolyGame
     /// <summary>
     /// This is class for singleton Board that has properties and traders on it.
     /// </summary>
+    //3.2-Serialisation
     [Serializable]
     public class Board
     {

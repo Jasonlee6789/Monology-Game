@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
 namespace MolopolyGame
-{
+{// 3.1-Load game initial set up from file. 
     class WirteRead
     {
         // method for write

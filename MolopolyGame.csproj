@@ -53,9 +53,11 @@
     <Compile Include="Banker.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="ColoredMessage.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameInterface.cs" />
+    <Compile Include="IColoredMessage.cs" />
     <Compile Include="InitialValuesAccessor.cs" />
     <Compile Include="Luck.cs" />
     <Compile Include="LuckFactory.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="PropertyFactory.cs" />
     <Compile Include="Residential.cs" />
     <Compile Include="ResidentialFactory.cs" />
+    <Compile Include="SuperPlayer.cs" />
     <Compile Include="Testing\_BankerTest.cs" />
     <Compile Include="Testing\_BoardTest.cs" />
     <Compile Include="Testing\_DieTest.cs" />

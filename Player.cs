@@ -30,7 +30,7 @@ namespace MolopolyGame
             this.dBalance = InitialValuesAccessor.getPlayerStartingBalance(true);
             this.location = 0;
         }
-
+        //3.1-Load game initial set up from file.
         public Player(string sName, bool setD)
         {
             this.sName = sName;
