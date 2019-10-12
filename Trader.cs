@@ -4,11 +4,11 @@ using System.Text;
 
 namespace MolopolyGame
 {
-    
+
     /// <summary>
     /// Class that represents a trader that can transfer money and own properties
     /// </summary>
-    
+    [Serializable]
     public class Trader //should be abstract but not to make testing easier
     {
         protected ArrayList propertiesOwned = new ArrayList();

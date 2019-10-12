@@ -5,11 +5,11 @@ using System.Collections;
 
 namespace MolopolyGame
 {
-   
+
     /// <summary>
     /// Class for players playing monopoly
     /// </summary>
-    
+    [Serializable]
     public class Player : Trader
     {
         private int location;

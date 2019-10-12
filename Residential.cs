@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MolopolyGame
 {
+    [Serializable]
     public class Residential : TradeableProperty
     {
         

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace MolopolyGame
 {
-     /// <summary>
+    /// <summary>
     /// Type of property such as water works
     /// </summary>
-    
+    [Serializable]
     public class Utility : TradeableProperty
     {
         static int rentMultiplier = 6; //factor to multiply times roll of dice to getRent

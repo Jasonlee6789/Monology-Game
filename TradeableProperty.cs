@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MolopolyGame
 {
+    [Serializable]
     public class TradeableProperty : Property //should be abstract but not to make testing easier
     {
         protected decimal dPrice;

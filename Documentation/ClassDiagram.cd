@@ -53,7 +53,7 @@
   <Class Name="MolopolyGame.Luck">
     <Position X="6.5" Y="4.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Luck.cs</FileName>
     </TypeIdentifier>
   </Class>

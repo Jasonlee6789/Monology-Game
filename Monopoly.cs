@@ -9,7 +9,7 @@ namespace MolopolyGame
     /// <summary>
     /// Main class for monoploy game that implements abstract class game
     /// </summary>
-    
+    [Serializable]
     public class Monopoly : Game
     {
         ConsoleColor[] colors = new ConsoleColor[8] { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.Blue, ConsoleColor.DarkYellow};
@@ -381,7 +381,11 @@ namespace MolopolyGame
             Console.WriteLine("3. Purchase This Property");
             Console.WriteLine("4. Buy House for Property");
             Console.WriteLine("5. Trade Property with Player");
-            Console.Write("(1-5)>");
+            Console.WriteLine("6. Save ALL Game");
+
+            //3.2-Serialisation
+
+            Console.Write("(1-6)>");
             //read response
             resp = inputInteger();
             //if response is invalid redisplay menu
@@ -411,6 +415,20 @@ namespace MolopolyGame
                         this.tradeProperty(player);
                         this.displayPlayerChoiceMenu(player);
                         break;
+                //3.2-Serialisation
+                case 6:
+                    {
+                        ArrayList properties = Board.access().getProperties();
+                        ArrayList players = Board.access().getPlayers();
+
+                        WirteRead savetoBinary = new WirteRead();
+                        //savetoBinary.savePositionToBinary(board);
+
+                    
+                        savetoBinary.savePropertyToBinary(properties);
+                        savetoBinary.savePlayerToBinary(players);
+                        break;
+                    }
                     default:
                         Console.WriteLine("That option is not avaliable. Please try again.");
                         this.displayPlayerChoiceMenu(player);
@@ -514,6 +532,8 @@ namespace MolopolyGame
             decimal amountWanted = inputDecimal(inputAmtMsg);
 
             //confirm with playerToTradeWith
+
+
                 //set console color
             ConsoleColor origColor = Console.ForegroundColor;
             int i = Board.access().getPlayers().IndexOf(playerToTradeWith);

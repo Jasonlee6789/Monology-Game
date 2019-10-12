@@ -4,10 +4,11 @@ using System.Text;
 
 namespace MolopolyGame
 {
-     /// <summary>
+    /// <summary>
     /// Class that represents a generic property types
     /// </summary>
     /// 
+    [Serializable]
     public class Property
     {
         protected string sName;
