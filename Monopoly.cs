@@ -9,8 +9,10 @@ namespace MolopolyGame
     /// <summary>
     /// Main class for monoploy game that implements abstract class game
     /// </summary>
+    /// 
+    //2.4 Demonstrate use of abstract and sealed classes in the project
     [Serializable]
-    public class Monopoly : Game
+    public sealed  class Monopoly : Game
     {
         ConsoleColor[] colors = new ConsoleColor[8] { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.Blue, ConsoleColor.DarkYellow};
         bool gameSetUp = false;
