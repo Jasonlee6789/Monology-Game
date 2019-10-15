@@ -88,18 +88,11 @@ namespace MolopolyGame
             return true;
         }
 
-        // add a method to open Binary File and deserialize to object
+        // add a method to open Binary File and Deserialize to object
 
         public ArrayList openPropertyBinaryFile()
-        {
-            //1.find the binaryFile
-
-
-
-            //2. use method to open it 
+        {  
             FileStream inFile = new FileStream("PropertyStore.txt", FileMode.Open, FileAccess.Read);
-
-            //3. read 
             ArrayList properties = new ArrayList();
             Property property = new Property();
             BinaryFormatter binData = new BinaryFormatter();

@@ -5,11 +5,22 @@ using System.Text;
 
 namespace MolopolyGame
 {// 2.1-Demonstrate use of inheritance in various forms
-    class SuperPlayer : Player
+    //2.3-Extend use of Interface classes in the project   
+    class SuperPlayer : Player, SuperPlayerInterface
     {
         public SuperPlayer() : base("LiJing", 100000000)
         {
 
         }
+
+        public void showMeTheMoney()
+        {
+            this.receive(10000);
+        }
+    }
+
+    internal interface SuperPlayerInterface
+    {
+        void showMeTheMoney();
     }
 }

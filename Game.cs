@@ -5,9 +5,11 @@ using System.Text;
 namespace MolopolyGame
 {
 
-     /// <summary>
+    /// <summary>
     /// Implements the game interface
     /// </summary>
+    
+    //2.4 Demonstrate use of abstract and sealed classes in the project
     public abstract class Game: GameInterface
     {
         private int playersCount;

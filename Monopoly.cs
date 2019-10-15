@@ -195,6 +195,7 @@ namespace MolopolyGame
             }
             catch (FormatException ex)
             {
+           
                 Console.WriteLine("Please enter a decimal number such as 25.54 or 300. Please try again.");
                 return 0;
             }
@@ -286,7 +287,9 @@ namespace MolopolyGame
             do
             {
                 // Ask Initial money for each player 
-                Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+                 Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+                // 2.2 add a new  design pattern_Adapter
+               // new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 //judge the player's input
                 string r = Console.ReadLine();
