@@ -26,6 +26,7 @@ namespace MolopolyGame
 
         public Player()
         {
+            // this is a merge test.
             this.sName = "Player";
             this.dBalance = InitialValuesAccessor.getPlayerStartingBalance(true);
             this.location = 0;
