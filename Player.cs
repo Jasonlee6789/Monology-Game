@@ -23,6 +23,8 @@ namespace MolopolyGame
         //event for playerBankrupt
         public event EventHandler playerBankrupt;
         public event EventHandler playerPassGo;
+        //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
+        public event EventHandler playerluckyDice;
 
         public Player()
         {
@@ -55,8 +57,11 @@ namespace MolopolyGame
             //increase location
            this.setLocation(this.getLocation() + iMoveDistance);
            this.lastMove = iMoveDistance;
-        }
 
+            Board.access().record(die1.roll(), die2.roll());
+
+        }
+        
         public int getLastMove()
         {
             return this.lastMove;
@@ -150,7 +155,6 @@ namespace MolopolyGame
                 }
                 //set isInactive to true
                 this.isInactive = true;
-
 
             }
         }

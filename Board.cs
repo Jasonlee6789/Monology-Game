@@ -15,6 +15,16 @@ namespace MolopolyGame
         //provide an static instance of this class to create singleton
         static Board board;
         private ArrayList properties;
+
+        //2.6 Demonstrate use of generics in the project
+        System.Collections.Generic.List<int> diceNumbers = new System.Collections.Generic.List<int>();
+        public void record(int d1, int d2)
+        {
+            diceNumbers.Add(d1);
+            diceNumbers.Add(d2);
+        }
+        // use this to record the diceNumbers everytime
+
         private ArrayList players;
         int SQUARES = 40;
      

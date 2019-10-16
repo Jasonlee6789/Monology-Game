@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Collections;
@@ -337,15 +337,44 @@ namespace MolopolyGame
                 Console.Write(">");
                 string sPlayerName = Console.ReadLine();
                 Player player = new Player(sPlayerName, setD);
+
                 //subscribe to events
                 player.playerBankrupt += playerBankruptHandler;
                 player.playerPassGo += playerPassGoHandler;
+
+                player.playerluckyDice += playerluckyDiceHanler;
+
                 //add player 
                 Board.access().addPlayer(player);
                 Console.WriteLine("{0} has been added to the game.", Board.access().getPlayer(i).getName());
             }
 
             Console.WriteLine("Players have been setup");
+        }
+
+        private void playerluckyDiceHanler(object sender, EventArgs e)
+        {
+            // todo
+            Player p = (Player)sender;
+            if (p.getLastMove() == 6)
+            {
+                Console.WriteLine("Congratulations! You are a lucky dog! for Dice 6");
+                p.receive(6);
+            }
+        }
+
+        public static void playerBankruptHandler(object obj, EventArgs args)
+        {
+            //cast to player
+            Player p = (Player)obj;
+            //display bankrupt msg
+            Console.WriteLine("{0} IS BANKRUPT!", p.getName().ToUpper());
+        }
+
+        public static void playerPassGoHandler(object obj, EventArgs args)
+        {
+            Player p = (Player)obj;
+            Console.WriteLine("{0} has passed go.{0} has received $200", p.getName());
         }
 
         public string playerPrompt(int playerIndex)
@@ -633,20 +662,7 @@ namespace MolopolyGame
             }
         }
 
-        public static void playerBankruptHandler(object obj, EventArgs args)
-            {
-                //cast to player
-                Player p = (Player) obj;
-                //display bankrupt msg
-                Console.WriteLine("{0} IS BANKRUPT!", p.getName().ToUpper());
-
-            }
-
-        public static void playerPassGoHandler(object obj, EventArgs args)
-        {
-            Player p = (Player)obj;
-            Console.WriteLine("{0} has passed go.{0} has received $200", p.getName());
-        }
+   
    }
 }
 
