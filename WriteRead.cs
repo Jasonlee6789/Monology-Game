@@ -12,7 +12,7 @@ namespace MolopolyGame
 {// 3.1-Load game initial set up from file. 
  //3.2-Serialisation
     [Serializable]
-    class WirteRead
+    public class WriteRead
     {
         // method for write
         public void Write(string m)
@@ -80,7 +80,6 @@ namespace MolopolyGame
         {
             FileStream outPlayersFile = new FileStream("PlayersStore.txt", FileMode.Create, FileAccess.Write);
             BinaryFormatter nzBinFile = new BinaryFormatter();
-
             
             foreach(Player player in players)
                 nzBinFile.Serialize(outPlayersFile, player);
@@ -106,6 +105,20 @@ namespace MolopolyGame
             return properties;
         }
 
+        public ArrayList openPlayerBinaryFile()
+        {
+            FileStream inFile = new FileStream("PlayersStore.txt", FileMode.Open, FileAccess.Read);
+            ArrayList players = new ArrayList();
+            Player player = new Player();
+            BinaryFormatter binData = new BinaryFormatter();
 
+            while (inFile.Position < inFile.Length)
+            {
+                player = (Player)binData.Deserialize(inFile);
+                players.Add(player);
+            }
+            inFile.Close();
+            return players;
+        }
     }
 }

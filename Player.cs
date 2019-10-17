@@ -58,6 +58,7 @@ namespace MolopolyGame
            this.setLocation(this.getLocation() + iMoveDistance);
            this.lastMove = iMoveDistance;
 
+            //2.6 Demonstrate use of generics in the project
             Board.access().record(die1.roll(), die2.roll());
 
         }

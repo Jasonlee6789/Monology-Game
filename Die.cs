@@ -7,7 +7,7 @@ namespace MolopolyGame
      /// <summary>
     /// This is class for a die that generates random number 1-6 inclusive
     /// </summary>
-    [Obsolete("class name is wrong ,use Dice instead.")]
+   
     [Serializable]
     public class Die
     {

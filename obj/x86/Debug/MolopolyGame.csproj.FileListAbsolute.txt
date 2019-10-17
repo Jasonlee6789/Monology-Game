@@ -76,13 +76,13 @@ D:\Template\Console Based Monopoly Game\obj\x86\Debug\MolopolyGame.csprojAssembl
 D:\Template\Console Based Monopoly Game\obj\x86\Debug\MolopolyGame.csproj.CopyComplete
 D:\Template\Console Based Monopoly Game\obj\x86\Debug\MolopolyGame.exe
 D:\Template\Console Based Monopoly Game\obj\x86\Debug\MolopolyGame.pdb
-Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\MolopolyGame.exe
-Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\MolopolyGame.pdb
-Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.csprojAssemblyReference.cache
 Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.csproj.CoreCompileInputs.cache
-Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.exe
-Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.pdb
 Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\NUnit3.TestAdapter.dll
 Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\NUnit3.TestAdapter.pdb
 Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\nunit.engine.dll
 Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\nunit.engine.api.dll
+Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\MolopolyGame.exe
+Q:\Senior-jing.li hello world\Assignment3\C-Game\bin\Debug\MolopolyGame.pdb
+Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.exe
+Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.pdb
+Q:\Senior-jing.li hello world\Assignment3\C-Game\obj\x86\Debug\MolopolyGame.csprojAssemblyReference.cache

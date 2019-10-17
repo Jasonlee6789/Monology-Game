@@ -33,7 +33,7 @@ namespace MolopolyGame
             else
             {
                 //read money from the "InitialMoney.txt" File 
-                WirteRead reader = new WirteRead();
+                WriteRead reader = new WriteRead();
                 decimal InMoney = decimal.Parse(reader.Read());
                 return InMoney;
             }

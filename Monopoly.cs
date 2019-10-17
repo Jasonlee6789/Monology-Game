@@ -113,7 +113,9 @@ namespace MolopolyGame
             Console.WriteLine("1. Setup Monopoly Game");
             Console.WriteLine("2. Start New Game");
             Console.WriteLine("3. Exit");
-            Console.Write("(1-3)>");
+            Console.WriteLine("4. Open the former progress");
+
+            Console.Write("(1-4)>");
             //read response
             resp = inputInteger();
             //if response is invalid redisplay menu
@@ -142,6 +144,29 @@ namespace MolopolyGame
                     case 3:
                         Environment.Exit(0);
                         break;
+
+                    case 4:
+                        WriteRead writeRead = new WriteRead();
+
+                        ArrayList list1 = writeRead.openPropertyBinaryFile();
+
+                        ArrayList list2 = writeRead.openPlayerBinaryFile();
+
+                        
+
+                        foreach(Property l in list1)
+                        {
+                            Board.access().addProperty(l);
+                        }
+
+                        foreach (Player l in list2)
+                        {
+                            Board.access().addPlayer(l);
+                        }
+
+
+                        break;
+
                     default:
                         throw new ApplicationException("That option is not avaliable. Please try again.");
                 }
@@ -271,6 +296,7 @@ namespace MolopolyGame
             Board.access().addProperty(luckFactory.create("Super Tax", true, 100));
             Board.access().addProperty(resFactory.create("Rangitoto", 400, 40, 200));
 
+      
             Console.WriteLine("Properties have been setup");
         }
 
@@ -303,10 +329,12 @@ namespace MolopolyGame
                     string m = Console.ReadLine();
 
                     // write into the txt file
-                    WirteRead writer = new WirteRead();
+                    WriteRead writer = new WriteRead();
 
                     writer.Write(m);
+
                     setD = false;
+
                     break;
                 }
                 else if (r.Equals("N"))
@@ -341,7 +369,7 @@ namespace MolopolyGame
                 //subscribe to events
                 player.playerBankrupt += playerBankruptHandler;
                 player.playerPassGo += playerPassGoHandler;
-
+                //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
                 player.playerluckyDice += playerluckyDiceHanler;
 
                 //add player 
@@ -354,12 +382,12 @@ namespace MolopolyGame
 
         private void playerluckyDiceHanler(object sender, EventArgs e)
         {
-            // todo
+            //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
             Player p = (Player)sender;
             if (p.getLastMove() == 6)
             {
                 Console.WriteLine("Congratulations! You are a lucky dog! for Dice 6");
-                p.receive(6);
+                p.receive(66);
             }
         }
 
@@ -455,7 +483,7 @@ namespace MolopolyGame
                         ArrayList properties = Board.access().getProperties();
                         ArrayList players = Board.access().getPlayers();
 
-                        WirteRead savetoBinary = new WirteRead();
+                        WriteRead savetoBinary = new WriteRead();
                         //savetoBinary.savePositionToBinary(board);
 
                     
@@ -572,8 +600,10 @@ namespace MolopolyGame
             ConsoleColor origColor = Console.ForegroundColor;
             int i = Board.access().getPlayers().IndexOf(playerToTradeWith);
             Console.ForegroundColor = this.colors[i];
+
                 //get player response
             bool agreesToTrade = getInputYN(playerToTradeWith, string.Format("{0} wants to trade '{1}' with you for ${2}. Do you agree to pay {2} for '{1}'", player.getName(), propertyToTrade.getName(), amountWanted));
+            
             //resent console color
             Console.ForegroundColor = origColor;
             if (agreesToTrade)
