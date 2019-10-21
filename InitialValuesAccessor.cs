@@ -25,10 +25,8 @@ namespace MolopolyGame
 
             if (setD == true)
             {
-
-                Console.WriteLine("Congratulations! You have set 2000$ to every players .");
-                return 2000;
                 
+                return 2000;
             }
             else
             {

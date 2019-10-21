@@ -56,14 +56,14 @@ namespace MolopolyGame
         //{
         //    FileStream outPositionFile = new FileStream("PositionStore.txt", FileMode.Create, FileAccess.Write);
         //    BinaryFormatter nzBinFile = new BinaryFormatter();
-           
+
         //    nzBinFile.Serialize(outPositionFile, position);
         //    outPositionFile.Close();
         //    return true;
         //}
 
 
-        //3.2-Serialisation
+        //3.2-Serialisation add a method to open Binary File and Deserialize to object
         public bool savePropertyToBinary(ArrayList properties)
         {
             FileStream outPropertyFile = new FileStream("PropertyStore.txt", FileMode.Create, FileAccess.Write);
@@ -75,7 +75,7 @@ namespace MolopolyGame
             return true;
         }
 
-        //3.2-Serialisation
+        //3.2-Serialisation add a method to open Binary File and Deserialize to object
         public bool savePlayerToBinary(ArrayList players)
         {
             FileStream outPlayersFile = new FileStream("PlayersStore.txt", FileMode.Create, FileAccess.Write);
@@ -87,13 +87,14 @@ namespace MolopolyGame
             return true;
         }
 
-        // add a method to open Binary File and Deserialize to object
+        //3.2-Serialisation add a method to open Binary File and Deserialize to object
 
         public ArrayList openPropertyBinaryFile()
         {  
             FileStream inFile = new FileStream("PropertyStore.txt", FileMode.Open, FileAccess.Read);
             ArrayList properties = new ArrayList();
             Property property = new Property();
+
             BinaryFormatter binData = new BinaryFormatter();
 
             while (inFile.Position < inFile.Length)
@@ -104,6 +105,9 @@ namespace MolopolyGame
             inFile.Close();
             return properties;
         }
+
+
+        //3.2-Serialisation add a method to open Binary File and Deserialize to object
 
         public ArrayList openPlayerBinaryFile()
         {

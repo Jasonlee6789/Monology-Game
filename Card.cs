@@ -12,6 +12,10 @@ namespace MolopolyGame
        {
         public override string ToString()        
         {
+
+            SuperPlayer p = new SuperPlayer();
+
+
             throw new System.NotImplementedException();
         }
     }

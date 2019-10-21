@@ -9,7 +9,7 @@ namespace MolopolyGame
     /// Implements the game interface
     /// </summary>
     [Serializable]
-    //2.4 Demonstrate use of abstract and sealed classes in the project
+    //2.4 Demonstrate use of abstract  classes in the project
     public abstract class Game: GameInterface
     {
         private int playersCount;
@@ -18,6 +18,7 @@ namespace MolopolyGame
         public abstract void makePlay(int player);
         public abstract bool endOfGame();
         public abstract void printWinner();
+
 
         // A template method : 
         public void playOneGame(int playersCount)

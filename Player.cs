@@ -25,7 +25,7 @@ namespace MolopolyGame
         public event EventHandler playerPassGo;
         //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
         public event EventHandler playerluckyDice;
-
+        public event EventHandler playerdoubleDice;
         public Player()
         {
             // this is a merge test.
@@ -70,7 +70,8 @@ namespace MolopolyGame
 
         public string BriefDetailsToString()
         {
-            return String.Format("You are on {0}.\tYou have ${1}.", Board.access().getProperty(this.getLocation()).getName(), this.getBalance());
+            return String.Format("You are on {0}.\tYou have ${1}.", 
+          Board.access().getProperty(this.getLocation()).getName(), this.getBalance());
         }
 
         public override string ToString()
@@ -80,7 +81,8 @@ namespace MolopolyGame
 
         public string FullDetailsToString()
         {
-            return String.Format("Player:{0}.\nBalance: ${1}\nLocation: {2} (Square {3}) \nProperties Owned:\n{4}", this.getName(), this.getBalance(), Board.access().getProperty(this.getLocation()), this.getLocation(), this.PropertiesOwnedToString());
+            return String.Format("Player:{0}.\nBalance: ${1}\nLocation: {2} (Square {3}) \nProperties Owned:\n{4}",
+                              this.getName(), this.getBalance(), Board.access().getProperty(this.getLocation()), this.getLocation(), this.PropertiesOwnedToString());
         }
 
         public string PropertiesOwnedToString()

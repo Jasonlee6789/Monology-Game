@@ -10,13 +10,14 @@ namespace MolopolyGame
     /// Main class for monoploy game that implements abstract class game
     /// </summary>
     /// 
-    //2.4 Demonstrate use of abstract and sealed classes in the project
+    //2.4 Demonstrate use of  sealed classes in the project
     [Serializable]
     public sealed  class Monopoly : Game
     {
         ConsoleColor[] colors = new ConsoleColor[8] { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.Blue, ConsoleColor.DarkYellow};
         bool gameSetUp = false;
         bool setD;
+        int AgainPlayerIndex;
 
         public override void initializeGame()
         {
@@ -26,6 +27,8 @@ namespace MolopolyGame
 
         public override void makePlay(int iPlayerIndex)
         {
+            AgainPlayerIndex = iPlayerIndex;
+            //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
             Console.Clear();
             //make variable for player
             Player player = Board.access().getPlayer(iPlayerIndex);
@@ -52,7 +55,7 @@ namespace MolopolyGame
                 {
                     this.printWinner();
                 }
-               
+
                 return;
             }
             
@@ -113,8 +116,8 @@ namespace MolopolyGame
             Console.WriteLine("1. Setup Monopoly Game");
             Console.WriteLine("2. Start New Game");
             Console.WriteLine("3. Exit");
-            Console.WriteLine("4. Open the former progress");
-
+            Console.WriteLine("4. Open the former Game progress");
+            // 3.2-Serialisation add a method to open Binary File and Deserialize to object
             Console.Write("(1-4)>");
             //read response
             resp = inputInteger();
@@ -144,15 +147,13 @@ namespace MolopolyGame
                     case 3:
                         Environment.Exit(0);
                         break;
-
+                    // 3.2-Serialisation add a method to open Binary File and Deserialize to object
                     case 4:
                         WriteRead writeRead = new WriteRead();
 
                         ArrayList list1 = writeRead.openPropertyBinaryFile();
 
                         ArrayList list2 = writeRead.openPlayerBinaryFile();
-
-                        
 
                         foreach(Property l in list1)
                         {
@@ -163,7 +164,6 @@ namespace MolopolyGame
                         {
                             Board.access().addPlayer(l);
                         }
-
 
                         break;
 
@@ -314,6 +314,7 @@ namespace MolopolyGame
             {
                 // Ask Initial money for each player 
                  Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+
                 // 2.2 add a new  design pattern_Adapter
                // new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
@@ -340,6 +341,7 @@ namespace MolopolyGame
                 else if (r.Equals("N"))
                 {
                     setD = true;
+                    Console.WriteLine("Congratulations! You have set 2000$ to every players .");
                     break;
                 }
                 else
@@ -364,6 +366,7 @@ namespace MolopolyGame
                 Console.WriteLine("Please enter the name for Player {0}:", i + 1);
                 Console.Write(">");
                 string sPlayerName = Console.ReadLine();
+
                 Player player = new Player(sPlayerName, setD);
 
                 //subscribe to events
@@ -371,13 +374,24 @@ namespace MolopolyGame
                 player.playerPassGo += playerPassGoHandler;
                 //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
                 player.playerluckyDice += playerluckyDiceHanler;
-
+                player.playerdoubleDice += playerdoubleDiceHandler;
                 //add player 
                 Board.access().addPlayer(player);
                 Console.WriteLine("{0} has been added to the game.", Board.access().getPlayer(i).getName());
             }
 
             Console.WriteLine("Players have been setup");
+        }
+        //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
+        private void playerdoubleDiceHandler(object sender, EventArgs e)
+        {
+            Player p = (Player)sender;
+            if (p.getLastMove() == 12)
+            {
+                Console.WriteLine("Congratulations! You are a lucky dog! for Dice 12.But it is a long lane that has no turning.");
+                this.makePlay(AgainPlayerIndex);
+
+            }
         }
 
         private void playerluckyDiceHanler(object sender, EventArgs e)
@@ -445,7 +459,7 @@ namespace MolopolyGame
             Console.WriteLine("5. Trade Property with Player");
             Console.WriteLine("6. Save ALL Game");
 
-            //3.2-Serialisation
+            // 3.2-Serialisation add a method to open Binary File and Deserialize to object
 
             Console.Write("(1-6)>");
             //read response
@@ -477,7 +491,7 @@ namespace MolopolyGame
                         this.tradeProperty(player);
                         this.displayPlayerChoiceMenu(player);
                         break;
-                //3.2-Serialisation
+                // 3.2-Serialisation add a method to open Binary File and Deserialize to object
                 case 6:
                     {
                         ArrayList properties = Board.access().getProperties();
@@ -691,8 +705,6 @@ namespace MolopolyGame
                 return null;
             }
         }
-
-   
-   }
+    }
 }
 
