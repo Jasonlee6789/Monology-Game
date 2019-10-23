@@ -7,7 +7,7 @@ namespace MolopolyGame
     /// <summary>
     /// Class that represents a generic property types
     /// </summary>
-    /// 
+//2.3-Extend use of Interface classes in the project  
     [Serializable]
     public class Property : GameMoney , IPurchase
     {
@@ -66,7 +66,7 @@ namespace MolopolyGame
         {
             return String.Format("{0} landed on {1}. ", player.getName(), this.getName());
         }
-
+        //2.3-Extend use of Interface classes in the project  
         public virtual bool availableForPurchase()
         {
             return false;
