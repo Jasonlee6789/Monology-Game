@@ -9,9 +9,13 @@ using System.Runtime.Serialization;
 using System.Collections;
 
 namespace MolopolyGame
-{// 3.1-Load game initial set up from file. 
+{ 
  //3.2-Serialisation
     [Serializable]
+
+
+    // 3.1-Load game initial set up from file.
+
     public class WriteRead
     {
         // method for write
@@ -49,7 +53,6 @@ namespace MolopolyGame
             inFile.Close();
 
             return recordIn;
-
         }
 
         //public bool savePositionToBinary(Board position)

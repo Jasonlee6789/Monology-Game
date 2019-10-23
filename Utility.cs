@@ -24,6 +24,7 @@ namespace MolopolyGame
         {
            return base.ToString();
         }
+
         public override void payRent(ref Player player)
         {
             player.pay(this.getRent(ref player));

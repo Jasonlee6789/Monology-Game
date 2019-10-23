@@ -9,7 +9,7 @@ namespace MolopolyGame
     /// </summary>
     /// 
     [Serializable]
-    public class Property
+    public class Property : GameMoney , IPurchase
     {
         protected string sName;
         protected Trader owner;
@@ -47,21 +47,30 @@ namespace MolopolyGame
             return this.sName;
         }
 
-        public virtual string landOn(ref Player player)
+       /* public virtual string landOn(ref Player player)
         {
             return String.Format("{0} landed on {1}. ", player.getName(), this.getName());
-        }
+        }*/
 
         public override string ToString()
         {
             return String.Format("{0}:\tOwned by: {1}", this.getName(), this.getOwner().getName());
         }
 
-        public virtual bool availableForPurchase()
+        /*public virtual bool availableForPurchase()
         {
             return false;//generic properties are not available for purchase
+        }*/
+
+        public override string landOn(ref Player player)
+        {
+            return String.Format("{0} landed on {1}. ", player.getName(), this.getName());
         }
 
+        public virtual bool availableForPurchase()
+        {
+            return false;
+        }
     }
 
    

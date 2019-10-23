@@ -4,10 +4,10 @@ using System.Text;
 
 namespace MolopolyGame
 {
-     /// <summary>
+    /// <summary>
     /// Main class for the program
     /// </summary>
-    class Program
+    sealed class Program
     {
         static void Main(string[] args)
         {//2.3-Extend use of Interface classes in the project  

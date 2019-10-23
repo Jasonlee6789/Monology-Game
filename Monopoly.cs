@@ -29,9 +29,12 @@ namespace MolopolyGame
         {
             AgainPlayerIndex = iPlayerIndex;
             //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
+
             Console.Clear();
+
             //make variable for player
             Player player = Board.access().getPlayer(iPlayerIndex);
+
             //Change the colour for the player
             Console.ForegroundColor = this.colors[iPlayerIndex];
 
@@ -40,8 +43,10 @@ namespace MolopolyGame
             {
                 Console.WriteLine("\n{0} is inactive.\n", player.getName());
                 //check players to continue
+
                 //check that there are still two players to continue
                 int activePlayerCount = 0;
+
                 foreach (Player p in Board.access().getPlayers())
                 {
                     //if player is active
@@ -308,7 +313,7 @@ namespace MolopolyGame
             int playerCount = this.inputInteger();
 
 
-            //3.1 - Load game initial set up from file.
+            
               int a = 0;
             do
             {
@@ -316,11 +321,11 @@ namespace MolopolyGame
                  Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 // 2.2 add a new  design pattern_Adapter
-               // new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+            //new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 //judge the player's input
                 string r = Console.ReadLine();
-
+                //3.1-Load game initial set up from file.
                 if (r.Equals("Y"))
                 {
                     // how much money will pay to each player
@@ -342,6 +347,10 @@ namespace MolopolyGame
                 {
                     setD = true;
                     Console.WriteLine("Congratulations! You have set 2000$ to every players .");
+
+                    WriteRead writer = new WriteRead();
+
+                    writer.Write("2000");
                     break;
                 }
                 else

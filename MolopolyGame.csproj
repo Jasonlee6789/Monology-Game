@@ -58,8 +58,10 @@
     <Compile Include="Die.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameInterface.cs" />
+    <Compile Include="GameMoney.cs" />
     <Compile Include="IColoredMessage.cs" />
     <Compile Include="InitialValuesAccessor.cs" />
+    <Compile Include="IPurchase.cs" />
     <Compile Include="Luck.cs" />
     <Compile Include="LuckFactory.cs" />
     <Compile Include="Monopoly.cs" />
