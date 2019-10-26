@@ -27,6 +27,7 @@ namespace MolopolyGame
             this.sName = sName;
             this.owner = owner;
         }
+
         public Trader getOwner()
         {
             return this.owner;

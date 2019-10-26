@@ -24,8 +24,20 @@
   </Class>
   <Class Name="MolopolyGame.Player">
     <Position X="2.25" Y="5.75" Width="2.25" />
+    <NestedTypes>
+      <Delegate Name="MolopolyGame.Player.luckyDiceDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="MolopolyGame.Player.doubleDiceDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAoQAAAgAgAAkACEgAAAAIACAKCAAgCCgAAAAAACAgA=</HashCode>
+      <HashCode>AAoQAAAgAAAAkACEgAAAAIACAKmAAgCCgAAAAAAAAgA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -39,7 +51,7 @@
   <Class Name="MolopolyGame.Property">
     <Position X="9.5" Y="1.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAkAIAAAAAgAAEAAAAAAAAAAAAAAAgAAAEAAAAAAA=</HashCode>
+      <HashCode>AAgAkAIAAAAAgAAEAAAAAAAAAAAAAAAgAAAEAAAAAAA=</HashCode>
       <FileName>Property.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

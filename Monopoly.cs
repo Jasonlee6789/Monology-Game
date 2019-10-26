@@ -318,10 +318,13 @@ namespace MolopolyGame
             do
             {
                 // Ask Initial money for each player 
-                 Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+                // Console.WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 // 2.2 add a new  design pattern_Adapter
-            //new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
+                Console.OutputEncoding = Encoding.GetEncoding(936);
+
+                Console.OutputEncoding = Encoding.UTF8;
+                new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 //judge the player's input
                 string r = Console.ReadLine();
@@ -381,9 +384,9 @@ namespace MolopolyGame
                 //subscribe to events
                 player.playerBankrupt += playerBankruptHandler;
                 player.playerPassGo += playerPassGoHandler;
-                //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
-                player.playerluckyDice += playerluckyDiceHanler;
-                player.playerdoubleDice += playerdoubleDiceHandler;
+                //Subscribe  2.7 Extend use of Delegates and Events by adding at least two new Events to the game. 
+                player.luckyDiceEvent += playerluckyDiceHanler;
+                player.doubleDiceEvent += playerdoubleDiceHandler;
                 //add player 
                 Board.access().addPlayer(player);
                 Console.WriteLine("{0} has been added to the game.", Board.access().getPlayer(i).getName());
@@ -391,7 +394,7 @@ namespace MolopolyGame
 
             Console.WriteLine("Players have been setup");
         }
-        //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
+        // 2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
         private void playerdoubleDiceHandler(object sender, EventArgs e)
         {
             Player p = (Player)sender;

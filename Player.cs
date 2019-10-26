@@ -24,8 +24,12 @@ namespace MolopolyGame
         public event EventHandler playerBankrupt;
         public event EventHandler playerPassGo;
         //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
-        public event EventHandler playerluckyDice;
-        public event EventHandler playerdoubleDice;
+        //1.	Define  a delegate;
+        public delegate void luckyDiceDelegate(object sender, EventArgs e);
+        public delegate void doubleDiceDelegate(object sender, EventArgs e);
+        //2.	Define an event based on that delegate 
+        public event luckyDiceDelegate luckyDiceEvent;
+        public event doubleDiceDelegate doubleDiceEvent;
         public Player()
         {
             // this is a merge test.
@@ -46,23 +50,23 @@ namespace MolopolyGame
         {
             this.location = 0;
         }
-  
+
         public void move()
         {
-            
+
             die1.roll();
             die2.roll();
             //move distance is total of both throws
-           int iMoveDistance = die1.roll() + die2.roll();
+            int iMoveDistance = die1.roll() + die2.roll();
             //increase location
-           this.setLocation(this.getLocation() + iMoveDistance);
-           this.lastMove = iMoveDistance;
+            this.setLocation(this.getLocation() + iMoveDistance);
+            this.lastMove = iMoveDistance;
 
             //2.6 Demonstrate use of generics in the project
             Board.access().record(die1.roll(), die2.roll());
 
         }
-        
+
         public int getLastMove()
         {
             return this.lastMove;
@@ -70,7 +74,7 @@ namespace MolopolyGame
 
         public string BriefDetailsToString()
         {
-            return String.Format("You are on {0}.\tYou have ${1}.", 
+            return String.Format("You are on {0}.\tYou have ${1}.",
           Board.access().getProperty(this.getLocation()).getName(), this.getBalance());
         }
 
@@ -101,13 +105,13 @@ namespace MolopolyGame
 
         public void setLocation(int location)
         {
-           
+
             //if set location is greater than number of squares then move back to beginning
             if (location >= Board.access().getSquares())
             {
                 location = (location - Board.access().getSquares());
                 //raise the pass go event if subscribers
-                if(playerPassGo != null)
+                if (playerPassGo != null)
                     this.playerPassGo(this, new EventArgs());
                 //add 200 for passing go
                 this.receive(200);
@@ -123,7 +127,7 @@ namespace MolopolyGame
 
         public string diceRollingToString()
         {
-            return String.Format("Rolling Dice:\tDice 1: {0}\tDice 2: {1}", die1, die2); 
+            return String.Format("Rolling Dice:\tDice 1: {0}\tDice 2: {1}", die1, die2);
         }
 
         public ArrayList getPropertiesOwnedFromBoard()
@@ -162,9 +166,11 @@ namespace MolopolyGame
             }
         }
 
+
+        
         public bool isNotActive()
         {
             return this.isInactive;
         }
-    }
+     }
 }
