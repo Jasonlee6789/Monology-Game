@@ -121,8 +121,9 @@ namespace MolopolyGame
             Console.WriteLine("1. Setup Monopoly Game");
             Console.WriteLine("2. Start New Game");
             Console.WriteLine("3. Exit");
-            Console.WriteLine("4. Open the former Game progress");
+            Console.WriteLine("4. Load the former Game progress");
             // 3.2-Serialisation add a method to open Binary File and Deserialize to object
+            //use of object serialisation to save and load game from file 
             Console.Write("(1-4)>");
             //read response
             resp = inputInteger();
@@ -160,16 +161,26 @@ namespace MolopolyGame
 
                         ArrayList list2 = writeRead.openPlayerBinaryFile();
 
-                        foreach(Property l in list1)
-                        {
-                            Board.access().addProperty(l);
-                        }
+                        Board.access().getProperties().AddRange(list1);
+                        Board.access().getPlayers().AddRange(list2);
+                        //foreach (Property l in list1)
+                        //{
+                        //    Board.access().addProperty(l);
 
-                        foreach (Player l in list2)
-                        {
-                            Board.access().addPlayer(l);
-                        }
+                        //}
 
+                        //foreach (Player l in list2)
+                        //{
+                        //    Board.access().addPlayer(l);
+                        //}
+
+                        for(int i =0; i<list2.Count; i++)
+                        {
+                            // Console.WriteLine("The Former Player Status:" + );
+                            Console.WriteLine("The Former Player Status:\n{0}{1}", playerPrompt(i), Board.access().getPlayer(i).BriefDetailsToString());
+                            
+                        }
+                        Console.ReadLine();
                         break;
 
                     default:
@@ -313,8 +324,9 @@ namespace MolopolyGame
             int playerCount = this.inputInteger();
 
 
-            
-              int a = 0;
+
+            int a = 0;
+            //3.1-Load game initial set up from file.
             do
             {
                 // Ask Initial money for each player 
@@ -323,16 +335,21 @@ namespace MolopolyGame
                 // 2.2 add a new  design pattern_Adapter
                 Console.OutputEncoding = Encoding.GetEncoding(936);
 
-                Console.OutputEncoding = Encoding.UTF8;
+                //Console.OutputEncoding = Encoding.UTF8;
                 new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 //judge the player's input
                 string r = Console.ReadLine();
-                //3.1-Load game initial set up from file.
+
                 if (r.Equals("Y"))
                 {
+
+
                     // how much money will pay to each player
                     Console.WriteLine("Please enter the money of players :");
+
+
+
 
                     // read the money player input
                     string m = Console.ReadLine();
