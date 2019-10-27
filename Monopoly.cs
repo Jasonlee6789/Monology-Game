@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 using System.Collections;
+using System.Text;
 
 namespace MolopolyGame
 {
@@ -12,9 +11,9 @@ namespace MolopolyGame
     /// 
     //2.4 Demonstrate use of  sealed classes in the project
     [Serializable]
-    public sealed  class Monopoly : Game
+    public sealed class Monopoly : Game
     {
-        ConsoleColor[] colors = new ConsoleColor[8] { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.Blue, ConsoleColor.DarkYellow};
+        ConsoleColor[] colors = new ConsoleColor[8] { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Red, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.Blue, ConsoleColor.DarkYellow };
         bool gameSetUp = false;
         bool setD;
         int AgainPlayerIndex;
@@ -63,8 +62,8 @@ namespace MolopolyGame
 
                 return;
             }
-            
-            
+
+
 
             //prompt player to make move
             Console.WriteLine("{0}Your turn. Press Enter to make move", playerPrompt(iPlayerIndex));
@@ -75,7 +74,7 @@ namespace MolopolyGame
             //Display making move
             Console.WriteLine("*****Move for {0}:*****", player.getName());
             //Display rolling
-           Console.WriteLine("{0}{1}\n", playerPrompt(iPlayerIndex), player.diceRollingToString());
+            Console.WriteLine("{0}{1}\n", playerPrompt(iPlayerIndex), player.diceRollingToString());
 
             Property propertyLandedOn = Board.access().getProperty(player.getLocation());
             //landon property and output to console
@@ -85,7 +84,7 @@ namespace MolopolyGame
             //display player choice menu
             displayPlayerChoiceMenu(player);
 
-            
+
         }
 
         public override bool endOfGame()
@@ -108,8 +107,8 @@ namespace MolopolyGame
                 if (!p.isNotActive())
                     winner = p;
             }
-             //display winner
-            Console.WriteLine("\n\n{0} has won the game!\n\n" , winner.getName());
+            //display winner
+            Console.WriteLine("\n\n{0} has won the game!\n\n", winner.getName());
             //end the game
             this.endOfGame();
         }
@@ -160,7 +159,7 @@ namespace MolopolyGame
 
                         ArrayList list2 = writeRead.openPlayerBinaryFile();
 
-                        foreach(Property l in list1)
+                        foreach (Property l in list1)
                         {
                             Board.access().addProperty(l);
                         }
@@ -176,11 +175,11 @@ namespace MolopolyGame
                         throw new ApplicationException("That option is not avaliable. Please try again.");
                 }
             }
-            catch(ApplicationException ex)
+            catch (ApplicationException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
         }
 
         public void setUpGame()
@@ -190,7 +189,7 @@ namespace MolopolyGame
 
             //add players
             this.setUpPlayers();
-            
+
         }
 
         public void playGame()
@@ -201,7 +200,7 @@ namespace MolopolyGame
                 {
                     this.makePlay(i);
                 }
-            } 
+            }
         }
 
         public int inputInteger() //0 is invalid input
@@ -225,7 +224,7 @@ namespace MolopolyGame
             }
             catch (FormatException ex)
             {
-           
+
                 Console.WriteLine("Please enter a decimal number such as 25.54 or 300. Please try again.");
                 return 0;
             }
@@ -234,7 +233,7 @@ namespace MolopolyGame
         public decimal inputDecimal(string msg)
         {
             Console.WriteLine(msg);
-             Console.Write(">");
+            Console.Write(">");
             decimal amount = this.inputDecimal();
 
             //if response is invalid redisplay 
@@ -301,7 +300,7 @@ namespace MolopolyGame
             Board.access().addProperty(luckFactory.create("Super Tax", true, 100));
             Board.access().addProperty(resFactory.create("Rangitoto", 400, 40, 200));
 
-      
+
             Console.WriteLine("Properties have been setup");
         }
 
@@ -313,8 +312,8 @@ namespace MolopolyGame
             int playerCount = this.inputInteger();
 
 
-            
-              int a = 0;
+
+            int a = 0;
             do
             {
                 // Ask Initial money for each player 
@@ -322,8 +321,7 @@ namespace MolopolyGame
 
                 // 2.2 add a new  design pattern_Adapter
                 Console.OutputEncoding = Encoding.GetEncoding(936);
-
-                Console.OutputEncoding = Encoding.UTF8;
+                // Console.OutputEncoding = Encoding.UTF8;
                 new Adapter().WriteLine("Would you like to setup initial money ( if no, you will just use 2000$) ? (Y/N)");
 
                 //judge the player's input
@@ -481,28 +479,28 @@ namespace MolopolyGame
                 this.displayPlayerChoiceMenu(player);
 
             //perform choice according to number input
-                switch (resp)
-                {
-                    case 1:
-                        break;
-                    case 2:
-                        Console.WriteLine("==================================");
-                        Console.WriteLine(player.FullDetailsToString());
-                        Console.WriteLine("==================================");
-                        this.displayPlayerChoiceMenu(player);
-                        break;
-                    case 3:
-                        this.purchaseProperty(player);
-                        this.displayPlayerChoiceMenu(player);
-                        break;
-                    case 4:
-                        this.buyHouse(player);
-                        this.displayPlayerChoiceMenu(player);
-                        break;
-                    case 5:
-                        this.tradeProperty(player);
-                        this.displayPlayerChoiceMenu(player);
-                        break;
+            switch (resp)
+            {
+                case 1:
+                    break;
+                case 2:
+                    Console.WriteLine("==================================");
+                    Console.WriteLine(player.FullDetailsToString());
+                    Console.WriteLine("==================================");
+                    this.displayPlayerChoiceMenu(player);
+                    break;
+                case 3:
+                    this.purchaseProperty(player);
+                    this.displayPlayerChoiceMenu(player);
+                    break;
+                case 4:
+                    this.buyHouse(player);
+                    this.displayPlayerChoiceMenu(player);
+                    break;
+                case 5:
+                    this.tradeProperty(player);
+                    this.displayPlayerChoiceMenu(player);
+                    break;
                 // 3.2-Serialisation add a method to open Binary File and Deserialize to object
                 case 6:
                     {
@@ -512,16 +510,16 @@ namespace MolopolyGame
                         WriteRead savetoBinary = new WriteRead();
                         //savetoBinary.savePositionToBinary(board);
 
-                    
+
                         savetoBinary.savePropertyToBinary(properties);
                         savetoBinary.savePlayerToBinary(players);
                         break;
                     }
-                    default:
-                        Console.WriteLine("That option is not avaliable. Please try again.");
-                        this.displayPlayerChoiceMenu(player);
-                        break;
-                }
+                default:
+                    Console.WriteLine("That option is not avaliable. Please try again.");
+                    this.displayPlayerChoiceMenu(player);
+                    break;
+            }
         }
 
         public void purchaseProperty(Player player)
@@ -559,19 +557,19 @@ namespace MolopolyGame
             //get the property to buy house for
             Property property = this.displayPropertyChooser(player.getPropertiesOwnedFromBoard(), sPrompt);
             //if dont own any properties
-            
+
             //check that it is a residential
             if (property.GetType() == (new Residential().GetType()))
             {
                 //cast to residential property
-               propertyToBuyFor = (Residential) property;
+                propertyToBuyFor = (Residential)property;
             }
             else //else display msg 
             {
                 Console.WriteLine("{0}A house can no be bought for {1} because it is not a Residential Property.", this.playerPrompt(player), propertyToBuyFor.getName());
                 return;
             }
-            
+
             //check that max houses has not been reached
             if (propertyToBuyFor.getHouseCount() >= Residential.getMaxHouses())
             {
@@ -622,14 +620,14 @@ namespace MolopolyGame
             //confirm with playerToTradeWith
 
 
-                //set console color
+            //set console color
             ConsoleColor origColor = Console.ForegroundColor;
             int i = Board.access().getPlayers().IndexOf(playerToTradeWith);
             Console.ForegroundColor = this.colors[i];
 
-                //get player response
+            //get player response
             bool agreesToTrade = getInputYN(playerToTradeWith, string.Format("{0} wants to trade '{1}' with you for ${2}. Do you agree to pay {2} for '{1}'", player.getName(), propertyToTrade.getName(), amountWanted));
-            
+
             //resent console color
             Console.ForegroundColor = origColor;
             if (agreesToTrade)
@@ -644,7 +642,7 @@ namespace MolopolyGame
             {
                 //display rejection message
                 Console.WriteLine("{0}{1} does not agree to trade {2} for ${3}", playerPrompt(player), playerToTradeWith.getName(), propertyToTrade.getName(), amountWanted);
-            }     
+            }
         }
 
         public Property displayPropertyChooser(ArrayList properties, String sPrompt)
@@ -672,7 +670,7 @@ namespace MolopolyGame
             else
             {
                 //return the appropriate property
-                return (Property) properties[resp - 1];
+                return (Property)properties[resp - 1];
             }
         }
 
@@ -707,11 +705,11 @@ namespace MolopolyGame
             }
             else
             {
-                Player chosenPlayer = (Player) displayList[resp - 1];
+                Player chosenPlayer = (Player)displayList[resp - 1];
                 //find the player to return
                 foreach (Player p in players)
                 {
-                    if(p.getName() == chosenPlayer.getName())
+                    if (p.getName() == chosenPlayer.getName())
                         return p;
                 }
                 return null;
@@ -719,4 +717,3 @@ namespace MolopolyGame
         }
     }
 }
-

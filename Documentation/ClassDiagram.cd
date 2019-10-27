@@ -234,7 +234,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="MolopolyGame.SuperPlayerInterface" Collapsed="true">
-    <Position X="2" Y="11.25" Width="1.5" />
+    <Position X="2" Y="11.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SuperPlayer.cs</FileName>
