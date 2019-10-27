@@ -25,7 +25,7 @@ namespace MolopolyGame
 
             if (setD == true)
             {
-                
+
                 return 2000;
             }
             else
@@ -35,7 +35,11 @@ namespace MolopolyGame
                 decimal InMoney = decimal.Parse(reader.Read());
                 return InMoney;
             }
-            
+            //3.1-Load game initial set up from file.
+            //  WriteRead reader = new WriteRead();
+            //decimal InMoney = decimal.Parse(reader.Read());
+            // return InMoney;
+
         }
 
 

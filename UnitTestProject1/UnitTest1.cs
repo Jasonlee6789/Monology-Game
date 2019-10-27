@@ -1,13 +1,13 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MolopolyGame;
+using NUnit.Framework;
 using System.Collections;
 
 namespace UnitTestProject
 {//2.8 Conduct unit tests on all classes I add
-    [TestClass]
+    [TestFixture]
     public class UnitTestWriteRead
     {
-        [TestMethod]
+        [Test]
         public void TestsavePlayerToBinary()
         {
             WriteRead writeRead = new WriteRead();
@@ -26,8 +26,7 @@ namespace UnitTestProject
             Assert.IsTrue(r);
         }
 
-        [TestMethod]
-
+        [Test]
         public void TestsavePropertyToBinary()
         {
             WriteRead writeRead = new WriteRead();
@@ -47,8 +46,7 @@ namespace UnitTestProject
         }
 
 
-        [TestMethod]
-
+        [Test]
         public void TestopenPropertyBinaryFile()
         {
             //the excepted Arraylist
@@ -61,7 +59,7 @@ namespace UnitTestProject
 
             //Actualproperities is the actrual  Arraylist
             WriteRead writeRead = new WriteRead();
-           
+
             ArrayList Actualproperities = new ArrayList();
 
             Actualproperities = writeRead.openPropertyBinaryFile();
@@ -70,15 +68,14 @@ namespace UnitTestProject
             CollectionAssert.AreEqual(Exceptedproperties, Actualproperities);
         }
 
-        [TestMethod]
-
+        [Test]
         public void TestopenPlayerBinaryFile()
         {
             //the excepted Arraylist
             ArrayList Exceptedplayers = new ArrayList();
             Player Kobe = new Player("kobe", true);
             Player Allen = new Player("allen", false);
-            
+
             Exceptedplayers.Add(Kobe);
             Exceptedplayers.Add(Allen);
 
@@ -90,13 +87,12 @@ namespace UnitTestProject
 
             //compare
 
-            CollectionAssert.AreEqual(Exceptedplayers,Actualplayers);
+            CollectionAssert.AreEqual(Exceptedplayers, Actualplayers);
 
         }
 
 
-        [TestMethod]
-
+        [Test]
         public void TestRead()
         {
             string exceptedMoney = "666";

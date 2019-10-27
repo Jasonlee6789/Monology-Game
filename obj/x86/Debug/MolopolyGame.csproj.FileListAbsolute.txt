@@ -90,8 +90,12 @@ C:\Users\jeffe\source\repos\C-Game\bin\Debug\NUnit3.TestAdapter.dll
 C:\Users\jeffe\source\repos\C-Game\bin\Debug\NUnit3.TestAdapter.pdb
 C:\Users\jeffe\source\repos\C-Game\bin\Debug\nunit.engine.dll
 C:\Users\jeffe\source\repos\C-Game\bin\Debug\nunit.engine.api.dll
+C:\Users\jeffe\source\repos\C-Game\bin\Debug\MolopolyGame.exe.config
 C:\Users\jeffe\source\repos\C-Game\bin\Debug\MolopolyGame.exe
 C:\Users\jeffe\source\repos\C-Game\bin\Debug\MolopolyGame.pdb
+C:\Users\jeffe\source\repos\C-Game\bin\Debug\nunit.framework.dll
+C:\Users\jeffe\source\repos\C-Game\bin\Debug\nunit.framework.pdb
+C:\Users\jeffe\source\repos\C-Game\bin\Debug\nunit.framework.xml
+C:\Users\jeffe\source\repos\C-Game\obj\x86\Debug\MolopolyGame.csproj.CopyComplete
 C:\Users\jeffe\source\repos\C-Game\obj\x86\Debug\MolopolyGame.exe
 C:\Users\jeffe\source\repos\C-Game\obj\x86\Debug\MolopolyGame.pdb
-C:\Users\jeffe\source\repos\C-Game\obj\x86\Debug\MolopolyGame.csprojAssemblyReference.cache
