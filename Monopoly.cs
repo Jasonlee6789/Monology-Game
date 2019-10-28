@@ -181,6 +181,7 @@ namespace MolopolyGame
                             
                         }
                         Console.ReadLine();
+                        this.playGame();
                         break;
 
                     default:
