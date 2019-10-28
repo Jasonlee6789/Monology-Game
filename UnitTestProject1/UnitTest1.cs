@@ -1,6 +1,8 @@
 using MolopolyGame;
 using NUnit.Framework;
+using System;
 using System.Collections;
+using System.IO;
 
 namespace UnitTestProject
 {//2.8 Conduct unit tests on all classes I add
@@ -101,5 +103,17 @@ namespace UnitTestProject
             Assert.AreEqual(exceptedMoney, actualMoney);
         }
 
+    }
+
+    [SetUpFixture]
+    public class MySetUpClass
+    {
+        [OneTimeSetUp]
+        public void RunBeforeAnyTests()
+        {
+            Environment.CurrentDirectory = TestContext.CurrentContext.TestDirectory;
+            // or identically under the hoods
+            Directory.SetCurrentDirectory(TestContext.CurrentContext.TestDirectory);
+        }
     }
 }

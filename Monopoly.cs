@@ -401,7 +401,7 @@ namespace MolopolyGame
                 //subscribe to events
                 player.playerBankrupt += playerBankruptHandler;
                 player.playerPassGo += playerPassGoHandler;
-                //Subscribe  2.7 Extend use of Delegates and Events by adding at least two new Events to the game. 
+                // 2.7 Extend use of Delegates and Events by adding at least two new Events to the game. 
                 player.luckyDiceEvent += playerluckyDiceHanler;
                 player.doubleDiceEvent += playerdoubleDiceHandler;
                 //add player 
