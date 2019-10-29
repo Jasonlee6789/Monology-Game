@@ -7,7 +7,8 @@ namespace MolopolyGame
     /// <summary>
     /// Class that represents a generic property types
     /// </summary>
-//2.3-Extend use of Interface classes in the project  
+    //2.3-Extend use of Interface classes in the project  
+    //2.4 Demonstrate use of abstract  classes in the project
     [Serializable]
     public class Property : GameMoney , IPurchase
     {
