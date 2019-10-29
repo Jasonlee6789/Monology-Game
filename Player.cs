@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Collections;
 
 namespace MolopolyGame
@@ -24,10 +22,10 @@ namespace MolopolyGame
         public event EventHandler playerBankrupt;
         public event EventHandler playerPassGo;
         //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
-        //1.	Define  a delegate;
+        //1.    Define  a delegate;
         public delegate void luckyDiceDelegate(object sender, EventArgs e);
         public delegate void doubleDiceDelegate(object sender, EventArgs e);
-        //2.	Define an event based on that delegate 
+        //2.    Define an event based on that delegate 
         public event luckyDiceDelegate luckyDiceEvent;
         public event doubleDiceDelegate doubleDiceEvent;
         public Player()
@@ -62,9 +60,13 @@ namespace MolopolyGame
             this.setLocation(this.getLocation() + iMoveDistance);
             this.lastMove = iMoveDistance;
 
-            //2.6 Demonstrate use of generics in the project
-            Board.access().record(die1.roll(), die2.roll());
+            //2.7 Extend use of Delegates and Events by adding at least two new Events to the game.
+            this.luckyDiceEvent(this, new EventArgs());
+            this.doubleDiceEvent(this, new EventArgs());
 
+            //2.6 Demonstrate use of generics in the project
+            Board.access().record(die1.numberLastRolled(), die2.numberLastRolled(), this.sName);
+            Console.WriteLine("The player has moved the sum steps: " + Board.access().showStep(this.sName));
         }
 
         public int getLastMove()
@@ -167,10 +169,10 @@ namespace MolopolyGame
         }
 
 
-        
+
         public bool isNotActive()
         {
             return this.isInactive;
         }
-     }
+    }
 }

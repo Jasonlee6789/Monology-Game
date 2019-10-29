@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MolopolyGame
 {
@@ -10,11 +8,11 @@ namespace MolopolyGame
     //2.3-Extend use of Interface classes in the project  
     //2.4 Demonstrate use of abstract  classes in the project
     [Serializable]
-    public class Property : GameMoney , IPurchase
+    public class Property : GameMoney, IPurchase
     {
         protected string sName;
         protected Trader owner;
-        public Property(): this("Property"){}
+        public Property() : this("Property") { }
 
         public Property(string sName)
         {
@@ -49,10 +47,7 @@ namespace MolopolyGame
             return this.sName;
         }
 
-       /* public virtual string landOn(ref Player player)
-        {
-            return String.Format("{0} landed on {1}. ", player.getName(), this.getName());
-        }*/
+
 
         public override string ToString()
         {
@@ -64,6 +59,11 @@ namespace MolopolyGame
             return false;//generic properties are not available for purchase
         }*/
 
+        /* public virtual string landOn(ref Player player)
+   {
+       return String.Format("{0} landed on {1}. ", player.getName(), this.getName());
+   }*/
+        //2.4 Demonstrate use of abstract  classes in the project
         public override string landOn(ref Player player)
         {
             return String.Format("{0} landed on {1}. ", player.getName(), this.getName());
@@ -75,5 +75,5 @@ namespace MolopolyGame
         }
     }
 
-   
+
 }

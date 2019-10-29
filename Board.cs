@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Text;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MolopolyGame
 {
@@ -17,17 +16,28 @@ namespace MolopolyGame
         private ArrayList properties;
 
         //2.6 Demonstrate use of generics in the project
-        System.Collections.Generic.List<int> diceNumbers = new System.Collections.Generic.List<int>();
-        public void record(int d1, int d2)
+        Dictionary<string, List<int>> diceNumbers = new Dictionary<string, List<int>>();
+        public void record(int d1, int d2, string name)
         {
-            diceNumbers.Add(d1);
-            diceNumbers.Add(d2);
+            if (!diceNumbers.ContainsKey(name))
+            {
+                diceNumbers[name] = new List<int>();
+            }
+            List<int> m = diceNumbers[name];
+            m.Add(d1);
+            m.Add(d2);
+        }
+        public int showStep(string name)
+        {
+            List<int> m = diceNumbers[name];
+            int s = m.Sum();
+            return s;
         }
         // use this to record the diceNumbers everytime
 
         private ArrayList players;
         int SQUARES = 40;
-     
+
         //method to access singleton
         public static Board access()
         {
@@ -67,7 +77,7 @@ namespace MolopolyGame
             return players.Count;
         }
 
-       
+
 
         public Player getPlayer(int playerIndex)
         {
@@ -100,6 +110,6 @@ namespace MolopolyGame
         {
             return this.properties;
         }
-  
+
     }
 }
